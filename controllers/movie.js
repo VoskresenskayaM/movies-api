@@ -7,6 +7,7 @@ const { created, ok } = require('../utils');
 
 module.exports.getAllMovies = (req, res, next) => {
   Movie.find({})
+    .populate(['owner'])
     .then((movies) => {
       if (!movies) {
         throw new NotFoundError('Фильмы не найдены');

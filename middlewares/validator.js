@@ -38,12 +38,12 @@ module.exports.createMovieValidator = celebrate({
     trailer: Joi.string().required().pattern(regLink),
     thumbnail: Joi.string().required().pattern(regLink),
     nameRU: Joi.string().required().pattern(movieNameRu),
-    nameEN: Joi.string().required().pattern(movieNameEn),
+    nameEN: Joi.string().pattern(movieNameEn),
   }),
 });
 
 module.exports.deleteMovieById = celebrate({
   params: Joi.object().keys({
-    movieId: Joi.string().required().hex().length(24),
+    _id: Joi.string().required().hex().length(24),
   }),
 });
