@@ -1,6 +1,6 @@
-const { PORT = 3000 } = process.env;
+/* const { PORT = 3000 } = process.env;
 const { DB_ADDRESS = 'mongodb://127.0.0.1:27017/moviesdb' } = process.env;
-const { SECRET_KEY = 'my-secret-key' } = process.env;
+const { SECRET_KEY = 'my-secret-key' } = process.env; */
 const ok = 200;
 const created = 201;
 const notValidation = 400;
@@ -27,9 +27,9 @@ module.exports = {
   notFound,
   isExist,
   serverError,
-  PORT,
+  /* PORT,
   DB_ADDRESS,
-  SECRET_KEY,
+  SECRET_KEY, */
   regEmail,
   regPassword,
   regId,

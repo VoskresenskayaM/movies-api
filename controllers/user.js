@@ -6,8 +6,10 @@ const NotFoundError = require('../errors/NotFoundError');
 const NotValidationError = require('../errors/NotValidationError');
 const IsExistError = require('../errors/IsExistError');
 const {
-  created, ok, SECRET_KEY, isExists,
+  created, ok, isExists,
 } = require('../utils');
+
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.getAllUsers = (req, res, next) => {
   User.find({})
@@ -80,7 +82,7 @@ module.exports.login = (req, res, next) => {
       if (user) {
         const token = jwt.sign(
           { _id: user._id },
-          SECRET_KEY,
+          NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
           { expiresIn: '7d' },
         );
         res.status(ok).send({ token });

@@ -1,10 +1,13 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
 const cors = require('cors');
 const helmet = require('helmet');
-const { PORT, DB_ADDRESS } = require('./utils');
+
+const { PORT, DB_ADDRESS } = process.env;
 const routes = require('./routes/index');
 const handlerError = require('./middlewares/hendlerError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
