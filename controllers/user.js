@@ -48,8 +48,8 @@ module.exports.getCurrentUser = (req, res, next) => {
 };
 
 module.exports.updateCurrentUser = (req, res, next) => {
+  console.log(req.user._id);
   const { name, email } = req.body;
-
   User.findByIdAndUpdate(
     req.user._id,
     { name, email },
@@ -58,14 +58,15 @@ module.exports.updateCurrentUser = (req, res, next) => {
       runValidators: true,
     },
   )
-    .then((user) => res.send({
-      data: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-
-      },
-    }))
+    .then((user) => {
+      res.send({
+        data: {
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+        },
+      });
+    })
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new NotValidationError('Некорректные данные пользователя'));
