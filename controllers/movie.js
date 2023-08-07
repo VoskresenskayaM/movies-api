@@ -28,7 +28,9 @@ module.exports.getAllUserMovies = (req, res, next) => {
       if (!movies) {
         throw new NotFoundError('Фильмы не найдены');
       }
+
       const userMovies = movies.filter((m) => m.owner._id.toString() === req.user._id);
+
       if (!userMovies) {
         throw new NotFoundError('Вы не сохранил ни одного фильма.');
       }
@@ -93,7 +95,7 @@ module.exports.deleteMovie = (req, res, next) => {
             if (!movie) {
               throw new NotFoundError('Фильм с таким id не найден');
             }
-            res.status(ok).send({ data: movie });
+            res.status(ok).send(movie);
           });
       }
     })
