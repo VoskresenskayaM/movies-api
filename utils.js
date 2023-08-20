@@ -15,8 +15,8 @@ const regPassword = /[0-9a-zA-Z!@#$%^&*]{6,20}/;
 const regId = /^[\w]{24}$/;
 const regLink = /https?:\/\/\S+/;
 const movieCreateYear = /^20[0-1][0-9]$|^202[0-3]$|^19[0-9]{2}$/;
-const movieNameRu = /* /^[?!,.:-«»'а-яА-ЯёЁ0-9a-zA-Z\s]+$/ *//^[?!,.-яА-ЯёЁa-zA-Z0-9\s'«»:–&-ё—]+$/;
-const movieNameEn = /* /^[?!,.:-«»'a-zA-Z0-9\s]+$/; *//^[?!,.-яА-ЯёЁa-zA-Z0-9\s'«»:–&-ё—]+$/;
+const movieNameRu = /* /^[?!,.:-«»'а-яА-ЯёЁ0-9a-zA-Z\s]+$/ *//^[?!,.-яА-ЯёЁa-zA-Z0-9\s'«»:–&-ё—’]+$/;
+const movieNameEn = /* /^[?!,.:-«»'a-zA-Z0-9\s]+$/; *//^[?!,.-яА-ЯёЁa-zA-Z0-9\s'«»:–&-ё—’]+$/;
 
 module.exports = {
   ok,
